@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+    
+	<!-- ID -->
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="id"
+	    android:id="@+id/id"
+	    android:layout_alignParentTop="true"
+	    android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:visibility="gone"
+	/>
+    
+    <!-- 会社名 -->
+    <TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="company"
+	    android:id="@+id/company"
+	    android:layout_alignParentTop="true"
+	    android:textAppearance="?android:attr/textAppearanceMedium"
+    />
+
+    <!-- 役職名 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="yakushoku"
+        android:id="@+id/yakushoku"
+        android:layout_below="@+id/company"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+	/>
+
+    <!-- 名前 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:id="@+id/name"
+        android:layout_below="@+id/company"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+	/>
+    
+    <!-- メアド -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="mail"
+        android:id="@+id/mail"
+        android:layout_below="@+id/name"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+	/>
+    
+    <!-- 電話番号 -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="phone"
+        android:id="@+id/phone"
+        android:layout_below="@+id/mail"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+	/>
+    
+</LinearLayout>
