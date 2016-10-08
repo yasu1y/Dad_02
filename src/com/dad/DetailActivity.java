@@ -501,9 +501,16 @@ public class DetailActivity extends Activity {
 	 * @throws Exception
 	 *             書き込みファイル取得失敗時
 	 */
-	private void writeCsv(final ArrayList<String> dataLst) throws Exception {
+// 20161008 yasui modify start
+//	private void writeCsv(final ArrayList<String> dataLst) throws Exception {
+	private void writeCsv(ArrayList<String> dataLst) throws Exception {
+// 20161008 yasui modify end
 		if (dataLst == null || dataLst.isEmpty()) {
-			return;
+// 20161008 yasui modify start
+//			return;
+			dataLst = new ArrayList<String>();
+			dataLst.add("");
+// 20161008 yasui modify end
 		}
 
 		PrintWriter pw = null;

@@ -91,14 +91,23 @@ public class ReadProfile extends Activity implements View.OnClickListener{
 
 			//NFCに入っているテキストデータを取得
 			String nfcMsg = this.NFCtext(intent);
-
-			Toast.makeText(getApplicationContext(), nfcMsg, Toast.LENGTH_LONG).show();
-
+			// 配列に変換
+			String[] aryNfcMsg = nfcMsg.split(",");	
+			
 			// 読み取ったテキストを編集画面に渡す
 			Intent intentForEdit = new Intent();
-			intentForEdit.setClassName("com.dad", "com.dad.Test");
-			intentForEdit.putExtra("ID",nfcMsg);
-
+			intentForEdit.setClassName("com.dad", "com.dad.DetailActivity");
+			
+			intent.putExtra(DetailActivity.ARGS_ID, "");
+			intentForEdit.putExtra(DetailActivity.ARGS_CMP_NM, aryNfcMsg[Constants.NFC_TAG_COMPANY]);
+			intentForEdit.putExtra(DetailActivity.ARGS_DPT_NM, aryNfcMsg[Constants.NFC_TAG_YAKUSHOKU]);
+			intentForEdit.putExtra(DetailActivity.ARGS_PRS_NM, aryNfcMsg[Constants.NFC_TAG_NAME]);
+			intent.putExtra(DetailActivity.ARGS_PRS_KN_NM, "");
+			intentForEdit.putExtra(DetailActivity.ARGS_MAIL, aryNfcMsg[Constants.NFC_TAG_MAIL]);
+			intentForEdit.putExtra(DetailActivity.ARGS_TEL, aryNfcMsg[Constants.NFC_TAG_PHONE]);
+			intent.putExtra(DetailActivity.ARGS_SEX, "");
+			intent.putExtra(DetailActivity.ARGS_MEMO, "");
+			
 			// SubActivity の起動
 			startActivity(intentForEdit);
 		}

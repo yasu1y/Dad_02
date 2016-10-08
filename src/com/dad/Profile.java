@@ -46,6 +46,20 @@ public class Profile {
 		setPhone(phone);
 	}
 	
+// 20161008 yasui add start
+	public Profile(String[] strProf){
+		setId(strProf[Constants.CSV_LAYOUT_PROF_ID]);
+		setCompany(strProf[Constants.CSV_LAYOUT_PROF_COMPANY]);
+		setYakushoku(strProf[Constants.CSV_LAYOUT_PROF_YAKUSHOKU]);
+		setName(strProf[Constants.CSV_LAYOUT_PROF_NAME]);
+		setMail(strProf[Constants.CSV_LAYOUT_PROF_MAIL]);
+		setPhone(strProf[Constants.CSV_LAYOUT_PROF_PHONE]);
+		setNameKana(strProf[Constants.CSV_LAYOUT_PROF_NAME_KANA]);
+		setSex(Integer.parseInt(strProf[Constants.CSV_LAYOUT_PROF_SEX]));
+		setMemo(strProf[Constants.CSV_LAYOUT_PROF_MEMO]);
+	}
+// 20161008 yasui add end
+	
 	// TODO add start
 	public Profile() {
 		super();

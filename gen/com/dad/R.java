@@ -1069,6 +1069,7 @@ containing a value of this type.
         public static final int abc_textfield_searchview_right_holo_dark=0x7f020055;
         public static final int abc_textfield_searchview_right_holo_light=0x7f020056;
         public static final int ic_launcher=0x7f020057;
+        public static final int l_05=0x7f020058;
     }
     public static final class id {
         public static final int action_bar=0x7f05001c;
@@ -1085,9 +1086,14 @@ containing a value of this type.
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
+        public static final int btnCnl=0x7f050046;
+        public static final int btnDlt=0x7f050047;
+        public static final int btnHome=0x7f050055;
+        public static final int btnReadProf=0x7f05004a;
+        public static final int btnUpd=0x7f050048;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
-        public static final int company=0x7f05003d;
+        public static final int company=0x7f05004c;
         public static final int default_activity_button=0x7f050028;
         public static final int dialog=0x7f05000e;
         public static final int disableHome=0x7f050008;
@@ -1099,21 +1105,27 @@ containing a value of this type.
         public static final int home=0x7f050014;
         public static final int homeAsUp=0x7f050005;
         public static final int icon=0x7f05002a;
-        public static final int id=0x7f05003c;
+        public static final int id=0x7f05004b;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
+        public static final int linearLayout1=0x7f050042;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
-        public static final int mail=0x7f050040;
+        public static final int mail=0x7f05004f;
+        public static final int memo=0x7f050053;
         public static final int middle=0x7f050012;
-        public static final int name=0x7f05003f;
+        public static final int name=0x7f05004e;
+        public static final int nameKana=0x7f050051;
         public static final int never=0x7f050009;
         public static final int none=0x7f050010;
         public static final int normal=0x7f050000;
-        public static final int phone=0x7f050041;
+        public static final int phone=0x7f050050;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
         public static final int radio=0x7f05002f;
+        public static final int rdbMan=0x7f050044;
+        public static final int rdbWoman=0x7f050045;
+        public static final int rdgSex=0x7f050043;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
         public static final int search_button=0x7f050033;
@@ -1124,6 +1136,7 @@ containing a value of this type.
         public static final int search_plate=0x7f050036;
         public static final int search_src_text=0x7f050037;
         public static final int search_voice_btn=0x7f05003b;
+        public static final int sex=0x7f050052;
         public static final int shortcut=0x7f05002e;
         public static final int showCustom=0x7f050007;
         public static final int showHome=0x7f050004;
@@ -1131,13 +1144,21 @@ containing a value of this type.
         public static final int split_action_bar=0x7f05001e;
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
-        public static final int testText=0x7f050042;
+        public static final int testText=0x7f050056;
+        public static final int textReadProf=0x7f050054;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
+        public static final int txtCmpNm=0x7f05003c;
+        public static final int txtDptNm=0x7f05003d;
+        public static final int txtMail=0x7f050040;
+        public static final int txtMemo=0x7f050049;
+        public static final int txtPrsKnNm=0x7f050041;
+        public static final int txtPrsNm=0x7f05003e;
+        public static final int txtTel=0x7f05003f;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
         public static final int withText=0x7f05000c;
-        public static final int yakushoku=0x7f05003e;
+        public static final int yakushoku=0x7f05004d;
     }
     public static final class integer {
         /**  The maximum number of action buttons that should be permitted within
@@ -1189,10 +1210,12 @@ containing a value of this type.
         public static final int abc_search_dropdown_item_icons_2line=0x7f030015;
         public static final int abc_search_view=0x7f030016;
         public static final int abc_simple_decor=0x7f030017;
-        public static final int activity_main=0x7f030018;
-        public static final int profilerow=0x7f030019;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
-        public static final int test=0x7f03001b;
+        public static final int activity_detail=0x7f030018;
+        public static final int activity_main=0x7f030019;
+        public static final int profilerow=0x7f03001a;
+        public static final int readprofile=0x7f03001b;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
+        public static final int test=0x7f03001d;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1236,7 +1259,27 @@ containing a value of this type.
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
         public static final int app_name=0x7f0a000d;
+        public static final int btn_cncl=0x7f0a0018;
+        public static final int btn_dlt=0x7f0a0019;
+        public static final int btn_sv=0x7f0a001a;
+        public static final int dad=0x7f0a000f;
+        public static final int error_connect=0x7f0a0021;
+        public static final int error_empty_uri=0x7f0a0020;
+        public static final int error_format=0x7f0a0022;
+        public static final int error_nfc_disable=0x7f0a001e;
+        public static final int error_nfc_nosupport=0x7f0a001f;
         public static final int hello_world=0x7f0a000e;
+        public static final int txt_cmp_nm=0x7f0a0010;
+        public static final int txt_dpt_nm=0x7f0a0011;
+        public static final int txt_mail=0x7f0a0013;
+        public static final int txt_memo=0x7f0a001b;
+        public static final int txt_prs_kn_nm=0x7f0a0015;
+        public static final int txt_prs_nm=0x7f0a0012;
+        public static final int txt_sex_man=0x7f0a0016;
+        public static final int txt_sex_woman=0x7f0a0017;
+        public static final int txt_tel_num=0x7f0a0014;
+        public static final int write_failure=0x7f0a001d;
+        public static final int write_success=0x7f0a001c;
     }
     public static final class style {
         /** 

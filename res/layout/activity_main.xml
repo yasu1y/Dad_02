@@ -5,11 +5,24 @@
 >
 
 	<!-- idはandroid:listに固定でないと動かない -->
-	<ListView
+<!-- 20161008 modify start -->
+<!--	<ListView
 		android:id="@id/android:list"
 		android:choiceMode="singleChoice"
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
-	/>
+	/>	-->
+	<ListView
+	    android:id="@id/android:list"
+	    android:layout_width="fill_parent"
+	    android:layout_height="393dp"
+	    android:choiceMode="singleChoice" />
+<!-- 20161008 modify end -->
     
+	<Button
+	    android:id="@+id/btnReadProf"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:text="読み込み" />
+	
 </LinearLayout>

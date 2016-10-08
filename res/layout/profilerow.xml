@@ -64,5 +64,41 @@
         android:layout_below="@+id/mail"
         android:textAppearance="?android:attr/textAppearanceSmall"
 	/>
+
+<!-- 20161008 yasui add start -->
+<!-- 非表示項目 -->
+	<!-- よみがな -->
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="nameKana"
+	    android:id="@+id/nameKana"
+	    android:layout_alignParentTop="true"
+	    android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:visibility="gone"
+	/>
+	
+	<!-- 性別 -->
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="sex"
+	    android:id="@+id/sex"
+	    android:layout_alignParentTop="true"
+	    android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:visibility="gone"
+	/>
+	
+	<!-- メモ -->
+	<TextView
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:text="memo"
+	    android:id="@+id/memo"
+	    android:layout_alignParentTop="true"
+	    android:textAppearance="?android:attr/textAppearanceMedium"
+	    android:visibility="gone"
+	/>
+<!-- 20161008 yasui add end -->
     
 </LinearLayout>

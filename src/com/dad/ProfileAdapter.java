@@ -62,6 +62,23 @@ public class ProfileAdapter extends ArrayAdapter<Profile> {
 		textView_phone = (TextView)convertView.findViewById(R.id.phone);
 		textView_phone.setText(item.getPhone());		
 		
+// 20161008 yasui add start
+		// よみがな
+		TextView textView_nameKana;
+		textView_nameKana = (TextView)convertView.findViewById(R.id.nameKana);
+		textView_nameKana.setText(item.getNameKana());
+		
+		// 性別
+		TextView textView_sex;
+		textView_sex = (TextView)convertView.findViewById(R.id.sex);
+		textView_sex.setText(Integer.toString(item.getSex()));
+		
+		// メモ
+		TextView textView_memo;
+		textView_memo = (TextView)convertView.findViewById(R.id.memo);
+		textView_memo.setText(item.getMemo());
+// 20161008 yasui add end
+				
 		return convertView;
 	}
 }
