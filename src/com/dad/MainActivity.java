@@ -139,7 +139,6 @@ public class MainActivity extends ListActivity implements View.OnClickListener{
 	 * テスト用メソッド
 	 */
 	private void createProfileList(){
-		//String s = "";
 		String s = "1,会社名1,役職名1,名前1,メアド1,電話番号1\r\n2,会社名2,役職名2,名前2,メアド2,電話番号2";
 		try{
 			OutputStream out = openFileOutput(Constants.FILE_NAME_PROF_LIST,MODE_PRIVATE);
