@@ -1,0 +1,143 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    tools:context="${relativePackage}.${activityClass}" >
+
+    <EditText
+        android:id="@+id/txtCmpNm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="@string/txt_cmp_nm" />
+
+    <EditText
+        android:id="@+id/txtDptNm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtCmpNm"
+        android:layout_marginTop="10dp"
+        android:ems="10"
+        android:hint="@string/txt_dpt_nm" />
+
+    <EditText
+        android:id="@+id/txtPrsNm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtDptNm"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:hint="@string/txt_prs_nm"
+        android:inputType="textPersonName" />
+
+    <EditText
+        android:id="@+id/txtTel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtMail"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:hint="@string/txt_tel_num"
+        android:inputType="phone" />
+
+    <EditText
+        android:id="@+id/txtMail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtPrsKnNm"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:hint="@string/txt_mail"
+        android:inputType="textEmailAddress" />
+
+    <EditText
+        android:id="@+id/txtPrsKnNm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtPrsNm"
+        android:layout_marginTop="11dp"
+        android:ems="10"
+        android:hint="@string/txt_prs_kn_nm" />
+
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/txtTel"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="11dp" >
+
+        <RadioGroup
+            android:id="@+id/rdgSex"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <RadioButton
+                android:id="@+id/rdbMan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:checked="true"
+                android:text="@string/txt_sex_man" />
+
+            <RadioButton
+                android:id="@+id/rdbWoman"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/txt_sex_woman" />
+        </RadioGroup>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentRight="true" >
+
+        <Button
+            android:id="@+id/btnCnl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_cncl" />
+
+        <Button
+            android:id="@+id/btnDlt"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_dlt" />
+
+        <Button
+            android:id="@+id/btnUpd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/btn_sv" />
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/txtMemo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@+id/linearLayout1"
+        android:ems="10"
+        android:hint="@string/txt_memo" >
+
+        <requestFocus />
+    </EditText>
+
+</RelativeLayout>

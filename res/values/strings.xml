@@ -3,5 +3,18 @@
 
     <string name="app_name">Dad</string>
     <string name="hello_world">Hello world!</string>
+    <string name="dad">dad_img</string>
+    <string name="txt_cmp_nm">COMPANY NAME</string>
+    <string name="txt_dpt_nm">DEPARTMENT NAME</string>
+    <string name="txt_prs_nm">PERSON NAME</string>
+    <string name="txt_mail">E-MAIL</string>
+    <string name="txt_tel_num">PHONE NUMBER</string>
+    <string name="txt_prs_kn_nm">PERSON KANA</string>
+    <string name="txt_sex_man">男性</string>
+    <string name="txt_sex_woman">女性</string>
+    <string name="btn_cncl">キャンセル</string>
+    <string name="btn_dlt">削除</string>
+    <string name="btn_sv">保存</string>
+    <string name="txt_memo">MEMO</string>
 
 </resources>

@@ -4,7 +4,7 @@ public class Constants {
 	private Constants(){}
 	
 	/* データ保存ファイル名称 */
-	public static String FILE_NAME_PROF_LIST = "C:\\Users\\安井唯\\Desktop\\アプリ開発WG\\prof_list.csv";
+	public static String FILE_NAME_PROF_LIST = "prof_list.csv";
 	
 	// *********************************
 	// CSVファイルレイアウト(プロフィール)
@@ -27,4 +27,15 @@ public class Constants {
 
 	/* CSVファイルレイアウト(プロフィール)-電話番号 */
 	public static int CSV_LAYOUT_PROF_PHONE = 5;
+	
+	// TODO add start
+	/* CSVファイルレイアウト(プロフィール)-名前(カナ) */
+	public static final int CSV_LAYOUT_PROF_NAME_KANA = 6;
+	
+	/* CSVファイルレイアウト(プロフィール)-性別 */
+	public static final int CSV_LAYOUT_PROF_SEX = 7;
+	
+	/* CSVファイルレイアウト(プロフィール)-メモ */
+	public static final int CSV_LAYOUT_PROF_MEMO = 8;
+	// add end
 }

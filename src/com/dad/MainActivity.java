@@ -3,21 +3,17 @@ package com.dad;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
+//import java.io.OutputStream;
+//import java.io.OutputStreamWriter;
+//import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-<<<<<<< master
 import android.widget.AdapterView;
 import android.widget.Button;
-=======
-import android.widget.AdapterView;
->>>>>>> 4426e8c 2016/10/08 非競合解消用コミット(ローカル)
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -26,6 +22,8 @@ public class MainActivity extends ListActivity{
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
+		System.out.println("MainActivity Start");
+		
 		super.onCreate(savedInstanceState);
 		
 		// Viewの取得
@@ -33,8 +31,9 @@ public class MainActivity extends ListActivity{
 		listView = (ListView)findViewById(android.R.id.list);
 		
 		// 表示内容リストの生成
-		this.createProfileList();	// デバッグ用CSVファイルの生成
-		ArrayList<Profile> list = this.readProfileList();
+		// TODO delete start
+//		this.createProfileList();	// デバッグ用CSVファイルの生成
+		// delete end		ArrayList<Profile> list = this.readProfileList();
 		
 		/* データの紐付け 
 		 * カスタムのProfileAdapterを使用しています */
@@ -50,12 +49,27 @@ public class MainActivity extends ListActivity{
 				Profile item = (Profile)listview.getItemAtPosition(position);
 				
 				// 通知ダイアログの表示
-				Toast.makeText(getApplicationContext(), item.getName(), Toast.LENGTH_LONG).show();
+//				Toast.makeText(getApplicationContext(), item.getName(), Toast.LENGTH_LONG).show();
 				
 				// アクティビティの遷移			
-				Intent intent = new Intent();
-				intent.setClassName("com.dad", "com.dad.Test");
-				intent.putExtra("ID",item.getId());
+				// TODO modify start
+//				Intent intent = new Intent();
+//				intent.setClassName("com.dad", "com.dad.Test");
+//				intent.putExtra("ID",item.getId());
+				// 詳細画面への遷移に変更
+				Intent intent = new Intent(getApplicationContext(),
+						DetailActivity.class);
+				// intent.setClassName("com.dad", "com.dad.DetailActivity");
+				intent.putExtra(DetailActivity.ARGS_ID, item.getId());
+				intent.putExtra(DetailActivity.ARGS_CMP_NM, item.getCompany());
+				intent.putExtra(DetailActivity.ARGS_DPT_NM, item.getYakushoku());
+				intent.putExtra(DetailActivity.ARGS_PRS_NM, item.getName());
+				intent.putExtra(DetailActivity.ARGS_PRS_KN_NM, item.getNameKana());
+				intent.putExtra(DetailActivity.ARGS_MAIL, item.getMail());
+				intent.putExtra(DetailActivity.ARGS_TEL, item.getPhone());
+				intent.putExtra(DetailActivity.ARGS_SEX, item.getSex());
+				intent.putExtra(DetailActivity.ARGS_MEMO, item.getMemo());
+				// modify end
 
 				// SubActivity の起動
 				startActivity(intent);
@@ -102,19 +116,21 @@ public class MainActivity extends ListActivity{
 		return profList;
 	}
 	
-	/**
-	 * テスト用メソッド
-	 */
-	private void createProfileList(){
-		String s = "1,会社名1,役職名1,名前1,メアド1,電話番号1\r\n2,会社名2,役職名2,名前2,メアド2,電話番号2";
-		try{
-			OutputStream out = openFileOutput(Constants.FILE_NAME_PROF_LIST,MODE_PRIVATE);
-			PrintWriter writer =
-							new PrintWriter(new OutputStreamWriter(out,"UTF-8"));
-			writer.append(s);
-			writer.close();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-	}
+	// TODO delete start
+//	/**
+//	 * テスト用メソッド
+//	 */
+//	private void createProfileList(){
+//		String s = "1,会社名1,役職名1,名前1,メアド1,電話番号1\r\n2,会社名2,役職名2,名前2,メアド2,電話番号2";
+//		try{
+//			OutputStream out = openFileOutput(Constants.FILE_NAME_PROF_LIST,MODE_PRIVATE);
+//			PrintWriter writer =
+//							new PrintWriter(new OutputStreamWriter(out,"UTF-8"));
+//			writer.append(s);
+//			writer.close();
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+//	}
+	// delete end
 }

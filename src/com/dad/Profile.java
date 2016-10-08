@@ -18,11 +18,24 @@ public class Profile {
 	/** 名前 */
 	String name;
 	
+	// TODO add start
+	/** 名前（カナ） **/
+	String nameKana;
+	// add end
+	
 	/** メールアドレス */
 	String mail;
 	
 	/** 電話番号 */
 	String phone;
+	
+	// TODO add start
+	/** 性別(1:男性 2:女性) **/
+	int sex;
+	
+	/** メモ **/
+	String memo;
+	// add end
 	
 	public Profile(String id,String company,String yakushoku,String name,String mail,String phone){
 		setId(id);
@@ -32,6 +45,12 @@ public class Profile {
 		setMail(mail);
 		setPhone(phone);
 	}
+	
+	// TODO add start
+	public Profile() {
+		super();
+	}
+	// add end
 
 	public String getId() {
 		return id;
@@ -88,6 +107,24 @@ public class Profile {
 	public void setName(String name) {
 		this.name = name;
 	}
+	
+	// TODO add start
+	/**
+	 * 名前（カナ）の取得
+	 * @return 名前（カナ）
+	 */
+	public String getNameKana() {
+		return this.nameKana;
+	}
+
+	/**
+	 * 名前（カナ）の設定
+	 * @param nameKana
+	 */
+	public void setNameKana(String nameKana) {
+		this.nameKana = nameKana;
+	}
+	// add end
 
 	/**
 	 * メールアドレスの設定
@@ -121,4 +158,38 @@ public class Profile {
 	public void setPhone(String phone) {
 		this.phone = phone;
 	}	
+	
+	// TODO add start
+	/**
+	 * 性別の取得
+	 * @return 性別
+	 */
+	public int getSex() {
+		return this.sex;
+	}
+
+	/**
+	 * 性別の設定
+	 * @param sex
+	 */
+	public void setSex(int sex) {
+		this.sex = sex;
+	}
+	
+	/**
+	 * メモの取得
+	 * @return メモ
+	 */
+	public String getMemo() {
+		return this.memo;
+	}
+
+	/**
+	 * メモの設定
+	 * @param memo
+	 */
+	public void setMemo(String memo) {
+		this.memo = memo;
+	}
+	// add end
 }
