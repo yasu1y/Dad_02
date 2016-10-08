@@ -31,17 +31,6 @@
 			android:name="DetailActivity"
 			android:label="@string/app_name" >
 		</activity>
-        
-   		<activity
-			android:name="Test"
-			android:label="@string/app_name" >
-		</activity>
-		
-   		<activity
-			android:name="DetailActivity"
-			android:label="@string/app_name" >
-		</activity>
-	</application>
-    
+    </application>
 
 </manifest>
