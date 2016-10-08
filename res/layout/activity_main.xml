@@ -6,10 +6,15 @@
 
 	<!-- idはandroid:listに固定でないと動かない -->
 	<ListView
-		android:id="@id/android:list"
-		android:choiceMode="singleChoice"
-		android:layout_width="fill_parent"
-		android:layout_height="wrap_content"
-	/>
+	    android:id="@id/android:list"
+	    android:layout_width="fill_parent"
+	    android:layout_height="393dp"
+	    android:choiceMode="singleChoice" />
+
+	<Button
+	    android:id="@+id/btnReadProf"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:text="読み込み" />
     
 </LinearLayout>

@@ -13,18 +13,25 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends ListActivity{
+public class MainActivity extends ListActivity implements View.OnClickListener{
 	ListView listView;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-		
+
 		// Viewの取得
 		this.setContentView(R.layout.activity_main);
+		
+		// ボタンのリスナー設定
+		Button btnReadProf = (Button)this.findViewById(R.id.btnReadProf);
+		btnReadProf.setOnClickListener(this);
+		
+		// ListViewの内容設定
 		listView = (ListView)findViewById(android.R.id.list);
 		
 		// 表示内容リストの生成
@@ -33,10 +40,20 @@ public class MainActivity extends ListActivity{
 		
 		/* データの紐付け 
 		 * カスタムのProfileAdapterを使用しています */
-		ProfileAdapter profileAdapater = new ProfileAdapter(this, 0, list);
-		listView.setAdapter(profileAdapater);
+		if(list.size() > 0){
+			// データが存在する場合
+			ProfileAdapter profileAdapater = new ProfileAdapter(this, 0, list);
+			listView.setAdapter(profileAdapater);
+		}else{
+			// 初回起動時等、データ0件の場合、読み込み画面アクティビティへ遷移する
+			Intent intent = new Intent();
+			intent.setClassName("com.dad", "com.dad.ReadProfile");
+
+			// SubActivity の起動
+			startActivity(intent);
+		}
 		
-		// setOnItemClickListernerでクリック時のイベントクラス呼び出し
+		// setOnItemClickListernerでリスト行クリック時のイベントクラス呼び出し
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -57,6 +74,27 @@ public class MainActivity extends ListActivity{
 			}
 		});
 	}
+	
+	/**
+	 * ボタンクリック時の処理
+	 * onCreateメソッドでリスナーの設定をしてから記載した処理が動くようになる
+	 * @Override
+	 */
+    public void onClick(View v) {		
+		// ボタンを複数設置した時のためにswitch文でボタン判定
+		int id = v.getId();
+		
+		switch(id){
+			case R.id.btnReadProf:
+				// アクティビティの遷移			
+				Intent intent = new Intent();
+				intent.setClassName("com.dad", "com.dad.ReadProfile");
+
+				// SubActivity の起動
+				startActivity(intent);
+				break;
+		}
+    }
 	
 	/**
 	 * CSVファイルから保存データを読み込み
@@ -101,6 +139,7 @@ public class MainActivity extends ListActivity{
 	 * テスト用メソッド
 	 */
 	private void createProfileList(){
+		//String s = "";
 		String s = "1,会社名1,役職名1,名前1,メアド1,電話番号1\r\n2,会社名2,役職名2,名前2,メアド2,電話番号2";
 		try{
 			OutputStream out = openFileOutput(Constants.FILE_NAME_PROF_LIST,MODE_PRIVATE);
