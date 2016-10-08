@@ -1,26 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-	<string name="app_name">Dad</string>
-	<string name="hello_world">Hello world!</string>
 
-	<string name="write_success">書き込みました</string>
-	<string name="write_failure">書き込むことができませんでした</string>
-	<string name="error_nfc_disable">NFCが無効になっています\n設定画面でNFCを有効にしてください</string>
-	<string name="error_nfc_nosupport">NFCが搭載されていない端末です</string>
-	<string name="error_empty_uri">書き込むデータを入力してください</string>
-	<string name="error_connect">タグとの通信に失敗しました</string>
-	<string name="error_format">書き込むデータを入力してください</string> 
-	<string name="dad">dad_img</string>
-    <string name="txt_cmp_nm">COMPANY NAME</string>
-    <string name="txt_dpt_nm">DEPARTMENT NAME</string>
-    <string name="txt_prs_nm">PERSON NAME</string>
-    <string name="txt_mail">E-MAIL</string>
-    <string name="txt_tel_num">PHONE NUMBER</string>
-    <string name="txt_prs_kn_nm">PERSON KANA</string>
-    <string name="txt_sex_man">男性</string>
-    <string name="txt_sex_woman">女性</string>
-    <string name="btn_cncl">キャンセル</string>
-    <string name="btn_dlt">削除</string>
-    <string name="btn_sv">保存</string>
-    <string name="txt_memo">MEMO</string>
+    <string name="app_name">Dad</string>
+    <string name="hello_world">Hello world!</string>
+
 </resources>

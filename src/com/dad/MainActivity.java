@@ -12,26 +12,24 @@ import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+<<<<<<< master
 import android.widget.AdapterView;
 import android.widget.Button;
+=======
+import android.widget.AdapterView;
+>>>>>>> 4426e8c 2016/10/08 非競合解消用コミット(ローカル)
 import android.widget.ListView;
 import android.widget.Toast;
 
-public class MainActivity extends ListActivity implements View.OnClickListener{
+public class MainActivity extends ListActivity{
 	ListView listView;
 	
 	@Override
 	public void onCreate(Bundle savedInstanceState){
 		super.onCreate(savedInstanceState);
-
+		
 		// Viewの取得
 		this.setContentView(R.layout.activity_main);
-		
-		// ボタンのリスナー設定
-		Button btnReadProf = (Button)this.findViewById(R.id.btnReadProf);
-		btnReadProf.setOnClickListener(this);
-		
-		// ListViewの内容設定
 		listView = (ListView)findViewById(android.R.id.list);
 		
 		// 表示内容リストの生成
@@ -40,20 +38,10 @@ public class MainActivity extends ListActivity implements View.OnClickListener{
 		
 		/* データの紐付け 
 		 * カスタムのProfileAdapterを使用しています */
-		if(list.size() > 0){
-			// データが存在する場合
-			ProfileAdapter profileAdapater = new ProfileAdapter(this, 0, list);
-			listView.setAdapter(profileAdapater);
-		}else{
-			// 初回起動時等、データ0件の場合、読み込み画面アクティビティへ遷移する
-			Intent intent = new Intent();
-			intent.setClassName("com.dad", "com.dad.ReadProfile");
-
-			// SubActivity の起動
-			startActivity(intent);
-		}
+		ProfileAdapter profileAdapater = new ProfileAdapter(this, 0, list);
+		listView.setAdapter(profileAdapater);
 		
-		// setOnItemClickListernerでリスト行クリック時のイベントクラス呼び出し
+		// setOnItemClickListernerでクリック時のイベントクラス呼び出し
 		listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -74,27 +62,6 @@ public class MainActivity extends ListActivity implements View.OnClickListener{
 			}
 		});
 	}
-	
-	/**
-	 * ボタンクリック時の処理
-	 * onCreateメソッドでリスナーの設定をしてから記載した処理が動くようになる
-	 * @Override
-	 */
-    public void onClick(View v) {		
-		// ボタンを複数設置した時のためにswitch文でボタン判定
-		int id = v.getId();
-		
-		switch(id){
-			case R.id.btnReadProf:
-				// アクティビティの遷移			
-				Intent intent = new Intent();
-				intent.setClassName("com.dad", "com.dad.ReadProfile");
-
-				// SubActivity の起動
-				startActivity(intent);
-				break;
-		}
-    }
 	
 	/**
 	 * CSVファイルから保存データを読み込み
