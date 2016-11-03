@@ -3,9 +3,6 @@ package com.dad;
 import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
-import java.io.OutputStream;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.util.ArrayList;
 
 import android.app.ListActivity;
@@ -15,7 +12,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.Toast;
 
 public class MainActivity extends ListActivity implements View.OnClickListener{
 	ListView listView;
@@ -38,9 +34,6 @@ public class MainActivity extends ListActivity implements View.OnClickListener{
 		listView = (ListView)findViewById(android.R.id.list);
 		
 		// 表示内容リストの生成
-		// TODO delete start
-//		this.createProfileList();	// デバッグ用CSVファイルの生成
-		// delete end
 		ArrayList<Profile> list = this.readProfileList();
 		
 		/* データの紐付け 
@@ -51,8 +44,8 @@ public class MainActivity extends ListActivity implements View.OnClickListener{
 			listView.setAdapter(profileAdapater);
 		}else{
 			// 初回起動時等、データ0件の場合、読み込み画面アクティビティへ遷移する
-			Intent intent = new Intent();
-			intent.setClassName("com.dad", "com.dad.ReadProfile");
+			Intent intent = new Intent(getApplicationContext(),
+					ReadProfile.class);
 
 			// SubActivity の起動
 			startActivity(intent);
@@ -76,15 +69,9 @@ public class MainActivity extends ListActivity implements View.OnClickListener{
 				// 通知ダイアログの表示
 //				Toast.makeText(getApplicationContext(), item.getName(), Toast.LENGTH_LONG).show();
 				
-				// アクティビティの遷移			
-				// TODO modify start
-//				Intent intent = new Intent();
-//				intent.setClassName("com.dad", "com.dad.Test");
-//				intent.putExtra("ID",item.getId());
-				// 詳細画面への遷移に変更
+				// 詳細画面へ遷移			
 				Intent intent = new Intent(getApplicationContext(),
 						DetailActivity.class);
-				// intent.setClassName("com.dad", "com.dad.DetailActivity");
 				intent.putExtra(DetailActivity.ARGS_ID, item.getId());
 				intent.putExtra(DetailActivity.ARGS_CMP_NM, item.getCompany());
 				intent.putExtra(DetailActivity.ARGS_DPT_NM, item.getYakushoku());
@@ -94,7 +81,6 @@ public class MainActivity extends ListActivity implements View.OnClickListener{
 				intent.putExtra(DetailActivity.ARGS_TEL, item.getPhone());
 				intent.putExtra(DetailActivity.ARGS_SEX, item.getSex());
 				intent.putExtra(DetailActivity.ARGS_MEMO, item.getMemo());
-				// modify end
 
 				// SubActivity の起動
 				startActivity(intent);
@@ -115,8 +101,8 @@ public class MainActivity extends ListActivity implements View.OnClickListener{
 		switch(id){
 			case R.id.btnReadProf:
 				// アクティビティの遷移			
-				Intent intent = new Intent();
-				intent.setClassName("com.dad", "com.dad.ReadProfile");
+				Intent intent = new Intent(getApplicationContext(),
+						ReadProfile.class);
 
 				// SubActivity の起動
 				startActivity(intent);
@@ -167,24 +153,5 @@ public class MainActivity extends ListActivity implements View.OnClickListener{
 		}
 
 		return profList;
-	}
-	
-	// TODO delete start
-	/**
-	 * テスト用メソッド
-	 */
-	private void createProfileList(){
-		String s = "1,会社名1,役職名1,名前1,メアド1,電話番号1,よみがな1,1,メモ1\r\n2,会社名2,役職名2,名前2,メアド2,電話番号2,よみがな2,1,メモ2";
-		
-		try{
-			OutputStream out = openFileOutput(Constants.FILE_NAME_PROF_LIST,MODE_PRIVATE);
-			PrintWriter writer =
-							new PrintWriter(new OutputStreamWriter(out,"UTF-8"));
-			writer.append(s);
-			writer.close();
-		}catch(Exception e){
-			e.printStackTrace();
-		}
-	}
-	// delete end
+	}	
 }

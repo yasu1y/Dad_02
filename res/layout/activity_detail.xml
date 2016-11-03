@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#add8e6"
+    android:background="#ffe0c0"
     android:gravity="top"
     tools:context="${relativePackage}.${activityClass}" >
 
@@ -123,7 +123,7 @@
             android:background="@drawable/btn"
             android:drawableLeft="@drawable/ic_action_undo"
             android:text="@string/btn_cncl"
-            android:textColor="#00ffff" />
+            android:textColor="#4d2613" />
 
         <Button
             android:id="@+id/btnDlt"
@@ -135,7 +135,7 @@
             android:background="@drawable/btn"
             android:drawableLeft="@drawable/ic_action_discard"
             android:text="@string/btn_dlt"
-            android:textColor="#00ffff" />
+            android:textColor="#4d2613" />
 
         <Button
             android:id="@+id/btnUpd"
@@ -147,7 +147,7 @@
             android:background="@drawable/btn"
             android:drawableLeft="@drawable/ic_action_save"
             android:text="@string/btn_sv"
-            android:textColor="#00ffff" />
+            android:textColor="#4d2613" />
 
     </LinearLayout>
 
@@ -159,7 +159,8 @@
         android:layout_below="@+id/linearLayout1"
         android:ems="10"
         android:hint="@string/txt_memo"
-        android:textColorHint="#778899" >
+        android:textColorHint="#778899"
+        android:textColorLink="#8c4623" >
 
         <requestFocus />
     </EditText>

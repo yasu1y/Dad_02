@@ -16,13 +16,17 @@
 	    android:id="@id/android:list"
 	    android:layout_width="fill_parent"
 	    android:layout_height="393dp"
-	    android:choiceMode="singleChoice" />
+	    android:choiceMode="singleChoice"
+	    android:background="#4d2613" />
 <!-- 20161008 modify end -->
     
 	<Button
 	    android:id="@+id/btnReadProf"
 	    android:layout_width="match_parent"
 	    android:layout_height="match_parent"
-	    android:text="読み込み" />
+	    android:background="@drawable/btn"
+	    android:drawableLeft="@drawable/ic_action_phone"
+	    android:text="読み込み"
+	    android:textColor="#4d2613" />
 	
 </LinearLayout>

@@ -1,33 +1,23 @@
 package com.dad;
 
-import java.io.IOException;
 import java.io.UnsupportedEncodingException;
-import java.util.Arrays;
-import java.util.List;
-
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
-import android.content.IntentFilter;
-import android.nfc.FormatException;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
-import android.nfc.Tag;
-import android.nfc.tech.Ndef;
-import android.nfc.tech.NdefFormatable;
-import android.nfc.tech.NfcF;
 import android.os.Bundle;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 import android.widget.Toast;
 
 public class ReadProfile extends Activity implements View.OnClickListener{
 	protected NfcAdapter mNfcAdapter;
     
+	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -55,6 +45,7 @@ public class ReadProfile extends Activity implements View.OnClickListener{
 		}
 	}
 	
+	@SuppressLint("NewApi")
 	@Override
 	protected void onResume() {
 		super.onResume();
@@ -67,6 +58,7 @@ public class ReadProfile extends Activity implements View.OnClickListener{
 		}
 	}
 
+	@SuppressLint("NewApi")
 	@Override
 	protected void onPause() {
 		super.onPause();
@@ -120,57 +112,58 @@ public class ReadProfile extends Activity implements View.OnClickListener{
 	 * @param tag
 	 * @param msg
 	 */
-	private void write(Tag tag, NdefMessage msg) {
-		try {
-			List<String> techList = Arrays.asList(tag.getTechList());
-			// 書き込みを行うタグにNDEFデータが格納されているか確認
-			if (techList.contains(Ndef.class.getName())) {
-				// NDEFが含まれている場合
-				Ndef ndef = Ndef.get(tag);
-				try {
-					// そのままNDEFデータ上にNDEFメッセージを書き込む
-					ndef.connect();
-					ndef.writeNdefMessage(msg);
-				} catch (IOException e) {
-					throw new RuntimeException(getString(R.string.error_connect), e);
-				} catch (FormatException e) {
-					throw new RuntimeException(getString(R.string.error_format), e);
-				} finally {
-					try {
-						ndef.close();
-					} catch (IOException e) {
-					}
-				}
-			} else if (techList.contains(NdefFormatable.class.getName())) {
-				// NDEFFormatableが含まれている場合
-				NdefFormatable ndeffmt = NdefFormatable.get(tag);
-				try {
-					// そのままNDEFにフォーマットしつつNDEFメッセージを書き込む
-					ndeffmt.connect();
-					ndeffmt.format(msg);
-				} catch (IOException e) {
-					throw new RuntimeException(getString(R.string.error_connect), e);
-				} catch (FormatException e) {
-					throw new RuntimeException(getString(R.string.error_format), e);
-				} finally {
-					try {
-						ndeffmt.close();
-					} catch (IOException e) {
-					}
-				}
-			}
-			Toast.makeText(this, getString(R.string.write_success), Toast.LENGTH_SHORT).show();
-		} catch (RuntimeException e) {
-			Toast.makeText(this, getString(R.string.write_failure), Toast.LENGTH_SHORT).show();
-		}
-	}
+//	private void write(Tag tag, NdefMessage msg) {
+//		try {
+//			List<String> techList = Arrays.asList(tag.getTechList());
+//			// 書き込みを行うタグにNDEFデータが格納されているか確認
+//			if (techList.contains(Ndef.class.getName())) {
+//				// NDEFが含まれている場合
+//				Ndef ndef = Ndef.get(tag);
+//				try {
+//					// そのままNDEFデータ上にNDEFメッセージを書き込む
+//					ndef.connect();
+//					ndef.writeNdefMessage(msg);
+//				} catch (IOException e) {
+//					throw new RuntimeException(getString(R.string.error_connect), e);
+//				} catch (FormatException e) {
+//					throw new RuntimeException(getString(R.string.error_format), e);
+//				} finally {
+//					try {
+//						ndef.close();
+//					} catch (IOException e) {
+//					}
+//				}
+//			} else if (techList.contains(NdefFormatable.class.getName())) {
+//				// NDEFFormatableが含まれている場合
+//				NdefFormatable ndeffmt = NdefFormatable.get(tag);
+//				try {
+//					// そのままNDEFにフォーマットしつつNDEFメッセージを書き込む
+//					ndeffmt.connect();
+//					ndeffmt.format(msg);
+//				} catch (IOException e) {
+//					throw new RuntimeException(getString(R.string.error_connect), e);
+//				} catch (FormatException e) {
+//					throw new RuntimeException(getString(R.string.error_format), e);
+//				} finally {
+//					try {
+//						ndeffmt.close();
+//					} catch (IOException e) {
+//					}
+//				}
+//			}
+//			Toast.makeText(this, getString(R.string.write_success), Toast.LENGTH_SHORT).show();
+//		} catch (RuntimeException e) {
+//			Toast.makeText(this, getString(R.string.write_failure), Toast.LENGTH_SHORT).show();
+//		}
+//	}
 	
 	/**
 	 * NFCタグの読み取りメソッド
 	 * @param intent
 	 * @return
 	 */
-	private String NFCtext(Intent intent){
+	@SuppressLint("NewApi")
+	private String NFCtext(Intent intent) {
 		//NFCシールからのアクセスかチェック
 		String str = "";
 		byte[] payload = null;
@@ -211,8 +204,8 @@ public class ReadProfile extends Activity implements View.OnClickListener{
 	/**
 	 * ボタンクリック時の処理
 	 * onCreateメソッドでリスナーの設定をしてから記載した処理が動くようになる
-	 * @Override
 	 */
+	@Override
     public void onClick(View v) {		
 		// ボタンを複数設置した時のためにswitch文でボタン判定
 		int id = v.getId();
