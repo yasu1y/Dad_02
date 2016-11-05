@@ -1,27 +1,96 @@
 package com.dad;
 
 import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
+import android.animation.Animator;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
 import android.annotation.SuppressLint;
+import android.annotation.TargetApi;
 import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.Intent;
 import android.nfc.NdefMessage;
 import android.nfc.NdefRecord;
 import android.nfc.NfcAdapter;
+import android.os.Build;
 import android.os.Bundle;
+import android.os.Handler;
 import android.os.Parcelable;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class ReadProfile extends Activity implements View.OnClickListener{
 	protected NfcAdapter mNfcAdapter;
-    
+	protected TextView txtReadProf;
+    protected Handler mHandler = new Handler();
+	
 	@SuppressLint("NewApi")
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.readprofile);
+
+		this.txtReadProf = (TextView) super.findViewById(R.id.textReadProf);
+	    /**
+	     * 第一引数: 繰り返し実行したい処理
+	     * 第二引数: 指定時間後に第一引数の処理を開始
+	     * 第三引数: 第一引数の処理完了後、指定時間後に再実行
+	     * 第四引数: 第二、第三引数の単位
+	     *
+	     * new Runnable（無名オブジェクト）をすぐに（0秒後に）実行し、完了後1700ミリ秒ごとに繰り返す。
+	     * （ただしアニメーションの完了からではない。Handler#postが即時実行だから？？）
+	     */
+		ScheduledExecutorService mScheduledExecutor = Executors.newScheduledThreadPool(2);
+
+	    mScheduledExecutor.scheduleWithFixedDelay(new Runnable() {
+	        @Override
+	        public void run() {
+	            ReadProfile.this.mHandler.post(new Runnable() {
+	                @Override
+	                public void run() {
+	                	ReadProfile.this.txtReadProf.setVisibility(View.VISIBLE);
+
+	                    // HONEYCOMBより前のAndroid SDKがProperty Animation非対応のため
+	                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
+	                        animateAlpha();
+	                    }
+	                }
+	            });
+	        }
+
+	        @TargetApi(Build.VERSION_CODES.HONEYCOMB)
+	        private void animateAlpha() {
+	            // 実行するAnimatorのリスト
+	            List<Animator> animatorList = new ArrayList<Animator>();
+
+	            // alpha値を0から1へ1000ミリ秒かけて変化させる。
+	            ObjectAnimator animeFadeIn = ObjectAnimator.ofFloat(ReadProfile.this.txtReadProf, "alpha", 0f, 1f);
+	            animeFadeIn.setDuration(1000);
+
+	            // alpha値を1から0へ600ミリ秒かけて変化させる。
+	            ObjectAnimator animeFadeOut = ObjectAnimator.ofFloat(ReadProfile.this.txtReadProf, "alpha", 1f, 0f);
+	            animeFadeOut.setDuration(600);
+
+	            // 実行対象Animatorリストに追加。
+	            animatorList.add(animeFadeIn);
+	            animatorList.add(animeFadeOut);
+
+	            final AnimatorSet animatorSet = new AnimatorSet();
+
+	            // リストの順番に実行
+	            animatorSet.playSequentially(animatorList);
+
+	            animatorSet.start();
+	        }
+	    }, 0, 1700, TimeUnit.MILLISECONDS);
 
 		// ボタンのリスナー設定
 		Button btnHome = (Button)this.findViewById(R.id.btnHome);

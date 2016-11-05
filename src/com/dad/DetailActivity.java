@@ -131,14 +131,6 @@ public class DetailActivity extends Activity {
 		this.txtPrsKnNm.setText(intent
 				.getStringExtra(DetailActivity.ARGS_PRS_KN_NM));
 
-		// ・メールアドレス
-		this.txtMail = (TextView) findViewById(R.id.txtMail);
-		this.txtMail.setText(intent.getStringExtra(DetailActivity.ARGS_MAIL));
-
-		// ・電話番号
-		this.txtTel = (TextView) findViewById(R.id.txtTel);
-		this.txtTel.setText(intent.getStringExtra(DetailActivity.ARGS_TEL));
-
 		// ・性別
 		this.rdgSex = (RadioGroup) findViewById(R.id.rdgSex);
 		this.rdbMan = (RadioButton) findViewById(R.id.rdbMan);
@@ -149,6 +141,14 @@ public class DetailActivity extends Activity {
 		} else {
 			this.rdbMan.setChecked(true);
 		}
+
+		// ・メールアドレス
+		this.txtMail = (TextView) findViewById(R.id.txtMail);
+		this.txtMail.setText(intent.getStringExtra(DetailActivity.ARGS_MAIL));
+
+		// ・電話番号
+		this.txtTel = (TextView) findViewById(R.id.txtTel);
+		this.txtTel.setText(intent.getStringExtra(DetailActivity.ARGS_TEL));
 
 		// ・メモ
 		this.txtMemo = (TextView) findViewById(R.id.txtMemo);
@@ -501,16 +501,16 @@ public class DetailActivity extends Activity {
 	 * @throws Exception
 	 *             書き込みファイル取得失敗時
 	 */
-// 20161008 yasui modify start
-//	private void writeCsv(final ArrayList<String> dataLst) throws Exception {
+	// 20161008 yasui modify start
+	// private void writeCsv(final ArrayList<String> dataLst) throws Exception {
 	private void writeCsv(ArrayList<String> dataLst) throws Exception {
-// 20161008 yasui modify end
+		// 20161008 yasui modify end
 		if (dataLst == null || dataLst.isEmpty()) {
-// 20161008 yasui modify start
-//			return;
+			// 20161008 yasui modify start
+			// return;
 			dataLst = new ArrayList<String>();
 			dataLst.add("");
-// 20161008 yasui modify end
+			// 20161008 yasui modify end
 		}
 
 		PrintWriter pw = null;

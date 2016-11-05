@@ -6,104 +6,221 @@
     android:gravity="top"
     tools:context="${relativePackage}.${activityClass}" >
 
-    <EditText
-        android:id="@+id/txtCmpNm"
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="@string/txt_cmp_nm"
-        android:textColorHint="#778899" />
+        android:orientation="vertical" >
 
-    <EditText
-        android:id="@+id/txtDptNm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtCmpNm"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:hint="@string/txt_dpt_nm"
-        android:textColorHint="#778899" />
-
-    <EditText
-        android:id="@+id/txtPrsNm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtDptNm"
-        android:layout_marginTop="11dp"
-        android:ems="10"
-        android:hint="@string/txt_prs_nm"
-        android:inputType="textPersonName"
-        android:textColorHint="#778899" />
-
-    <EditText
-        android:id="@+id/txtTel"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtMail"
-        android:layout_marginTop="11dp"
-        android:ems="10"
-        android:hint="@string/txt_tel_num"
-        android:inputType="phone"
-        android:textColorHint="#778899" />
-
-    <EditText
-        android:id="@+id/txtMail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtPrsKnNm"
-        android:layout_marginTop="11dp"
-        android:ems="10"
-        android:hint="@string/txt_mail"
-        android:inputType="textEmailAddress"
-        android:textColorHint="#778899" />
-
-    <EditText
-        android:id="@+id/txtPrsKnNm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtPrsNm"
-        android:layout_marginTop="11dp"
-        android:ems="10"
-        android:hint="@string/txt_prs_kn_nm"
-        android:textColorHint="#778899" />
-
-    <LinearLayout
-        android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/txtTel"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="11dp" >
-
-        <RadioGroup
-            android:id="@+id/rdgSex"
+        <LinearLayout
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView1"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="会社"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/txtCmpNm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/txt_cmp_nm"
+                android:textColorHint="#778899"
+                android:textColorLink="#E8BCA3" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="役職"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/txtDptNm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/txt_dpt_nm"
+                android:textColorHint="#778899" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_weight="1" >
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="名前"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/txtPrsNm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/txt_prs_nm"
+                android:inputType="textPersonName"
+                android:textColorHint="#778899" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent" >
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="ふり\nがな"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/txtPrsKnNm"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/txt_prs_kn_nm"
+                android:textColorHint="#778899" >
+            </EditText>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/linearLayout1"
+            android:layout_width="275dp"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+            android:layout_marginLeft="75dp"
+            android:layout_marginTop="11dp" >
 
-            <RadioButton
-                android:id="@+id/rdbMan"
+            <RadioGroup
+                android:id="@+id/rdgSex"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/txt_sex_man" />
+                android:orientation="horizontal" >
 
-            <RadioButton
-                android:id="@+id/rdbWoman"
+                <RadioButton
+                    android:id="@+id/rdbMan"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:checked="true"
+                    android:text="@string/txt_sex_man" />
+
+                <RadioButton
+                    android:id="@+id/rdbWoman"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/txt_sex_woman" />
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="電話\n番号"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/txtTel"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/txt_sex_woman" />
-        </RadioGroup>
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/txt_tel_num"
+                android:inputType="phone"
+                android:textColorHint="#778899" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="メール\nアドレス"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/txtMail"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/txt_mail"
+                android:inputType="textEmailAddress"
+                android:textColorHint="#778899" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" >
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="75dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:gravity="center_horizontal"
+                android:text="メモ"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+
+            <EditText
+                android:id="@+id/txtMemo"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="11dp"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/txt_memo"
+                android:textColorHint="#778899"
+                android:textColorLink="#8c4623" />
+
+        </LinearLayout>
+
     </LinearLayout>
 
     <LinearLayout
@@ -148,21 +265,6 @@
             android:drawableLeft="@drawable/ic_action_save"
             android:text="@string/btn_sv"
             android:textColor="#4d2613" />
-
     </LinearLayout>
-
-    <EditText
-        android:id="@+id/txtMemo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentLeft="true"
-        android:layout_below="@+id/linearLayout1"
-        android:ems="10"
-        android:hint="@string/txt_memo"
-        android:textColorHint="#778899"
-        android:textColorLink="#8c4623" >
-
-        <requestFocus />
-    </EditText>
 
 </RelativeLayout>

@@ -2,6 +2,7 @@
 	android:orientation="vertical"
 	android:layout_width="fill_parent"
 	android:layout_height="fill_parent"
+	android:background="#E8BCA3"
 >
 
 	<!-- idはandroid:listに固定でないと動かない -->
@@ -12,14 +13,23 @@
 		android:layout_width="fill_parent"
 		android:layout_height="wrap_content"
 	/>	-->
+
+    <Spinner
+        android:id="@+id/spnSort"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:entries="@array/sort_list"
+        android:background="#FF8040" />
+
 	<ListView
 	    android:id="@id/android:list"
 	    android:layout_width="fill_parent"
-	    android:layout_height="393dp"
-	    android:choiceMode="singleChoice"
-	    android:background="#4d2613" />
+	    android:layout_height="420dp"
+	    android:background="#E8BCA3"
+	    android:choiceMode="singleChoice" />
+
 <!-- 20161008 modify end -->
-    
+
 	<Button
 	    android:id="@+id/btnReadProf"
 	    android:layout_width="match_parent"

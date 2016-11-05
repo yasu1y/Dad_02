@@ -23,4 +23,11 @@
     <string name="error_empty_uri">書き込むデータを入力してください</string>
     <string name="error_connect">タグとの通信に失敗しました</string>
     <string name="error_format">書き込むデータを入力してください</string>
+
+    <string-array name="sort_list">
+        <item>"名前順"</item>
+        <item>"会社順"</item>
+        <item>"性別順"</item>
+    </string-array>
+
 </resources>

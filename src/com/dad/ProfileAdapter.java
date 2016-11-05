@@ -7,6 +7,7 @@ package com.dad;
 import java.util.List;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,7 +31,16 @@ public class ProfileAdapter extends ArrayAdapter<Profile> {
 		if (null == convertView) {
 			convertView = layoutInflater_.inflate(R.layout.profilerow, null);
 		}
-		
+
+		// 奇数行
+		if (position % 2 == 0) {
+			convertView.setBackgroundColor(Color.parseColor("#FFE0C0"));
+		}
+		// 偶数行
+		else {
+			convertView.setBackgroundColor(Color.parseColor("#FFEABF"));
+		}
+
 		// CustomDataのデータをViewの各Widgetにセットする
 		// ID
 		TextView textView_id;

@@ -4,14 +4,16 @@ import java.io.BufferedReader;
 import java.io.FileInputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-
+import java.util.Collections;
 import android.app.ListActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 
 public class MainActivity extends ListActivity implements View.OnClickListener{
 	ListView listView;
@@ -84,6 +86,54 @@ public class MainActivity extends ListActivity implements View.OnClickListener{
 
 				// SubActivity の起動
 				startActivity(intent);
+			}
+		});
+		
+		// ソートリスト
+		Spinner spnSort = (Spinner) findViewById(R.id.spnSort);
+		spnSort.setOnItemSelectedListener(new OnItemSelectedListener() {
+
+			/**
+			 * 選択時の処理
+			 */
+			@Override
+			public void onItemSelected(AdapterView<?> parent, View view,
+					int position, long id) {
+				Spinner spinner = (Spinner) parent;
+
+				String sortItem = "";
+				switch (spinner.getSelectedItemPosition()) {
+				case 0:
+					// 名前
+					sortItem = ListComparator.SORT_ITM_NAME;
+					break;
+				case 1:
+					// 会社
+					sortItem = ListComparator.SORT_ITM_COMPANY;
+					break;
+				case 2:
+					// 性別
+					sortItem = ListComparator.SORT_ITM_SEX;
+					break;
+				default:
+					break;
+				}
+
+				// 表示内容リストの生成
+				ArrayList<Profile> list = MainActivity.this.readProfileList();
+				Collections.sort(list, new ListComparator(sortItem));
+
+				ProfileAdapter profileAdapater = new ProfileAdapter(
+						MainActivity.this, 0, list);
+				MainActivity.this.listView.setAdapter(profileAdapater);
+			}
+
+			/**
+			 * 未選択時の処理
+			 */
+			@Override
+			public void onNothingSelected(AdapterView<?> parent) {
+				;
 			}
 		});
 	}
