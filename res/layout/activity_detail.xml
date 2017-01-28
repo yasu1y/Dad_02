@@ -37,7 +37,25 @@
                 android:hint="@string/txt_cmp_nm"
                 android:textColorHint="#778899"
                 android:textColorLink="#E8BCA3" />
+
+<!-- 2017/01/28 yasui add start -->
+            <Button
+                android:id="@+id/btnSrch"
+                android:layout_width="40dp"
+	            android:layout_height="40dp"
+                android:layout_marginTop="20dp"
+	            android:layout_marginLeft="1dp"
+	            android:layout_marginRight="10dp"
+	            android:layout_weight="1"
+                android:background="@drawable/btn"
+            	android:drawableBottom="@drawable/ic_action_srch"
+                android:textColor="#4d2613" />
+<!-- 2017/01/28 yasui add end -->
+            
         </LinearLayout>
+        
+
+        
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -180,7 +198,7 @@
                 android:layout_weight="1"
                 android:gravity="center_horizontal"
                 android:text="メール\nアドレス"
-                android:textAppearance="?android:attr/textAppearanceMedium" />
+                android:textAppearance="?android:attr/textAppearanceSmall" />
 
             <EditText
                 android:id="@+id/txtMail"

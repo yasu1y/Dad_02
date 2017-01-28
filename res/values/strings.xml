@@ -15,6 +15,9 @@
     <string name="btn_cncl">戻る</string>
     <string name="btn_dlt">削除</string>
     <string name="btn_sv">保存</string>
+<!-- 2017/01/28 yasui add  start-->
+	<string name="btn_srch">検</string>
+<!-- 2017/01/28 yasui add end -->
     <string name="txt_memo">MEMO</string>
     <string name="write_success">書き込みました</string>
     <string name="write_failure">書き込むことができませんでした</string>

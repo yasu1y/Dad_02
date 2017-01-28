@@ -13,6 +13,7 @@ import java.util.ArrayList;
 
 import android.app.Activity;
 import android.app.AlertDialog;
+import android.app.SearchManager;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
@@ -95,6 +96,10 @@ public class DetailActivity extends Activity {
 	private Button btnDlt;
 	/** 保存ボタン **/
 	private Button btnUpd;
+// 2017/01/28 yasui add start
+	/** 社名検索ボタン **/
+	private Button btnSrch;
+// 2017/01/28 yasui add end
 
 	// ///////////////////////////////////////////////////////////////////////////////////////
 	// 各アクション
@@ -166,6 +171,12 @@ public class DetailActivity extends Activity {
 		this.btnUpd = (Button) findViewById(R.id.btnUpd);
 		this.btnUpd.setOnClickListener(this.onBtnUpd());
 
+// 2017/01/28 yasui add start
+		// ・社名検索ボタン
+		this.btnSrch = (Button) findViewById(R.id.btnSrch);
+		this.btnSrch.setOnClickListener(this.onBtnSrch());
+// 2017/01/28 yasui add end
+		
 		// 変数の初期設定
 		// ・ID
 		this.id = intent.getStringExtra(DetailActivity.ARGS_ID);
@@ -279,6 +290,31 @@ public class DetailActivity extends Activity {
 		};
 	}
 
+// 2017/01/28 yasui add start
+	/**
+	 * HPボタン押下時処理
+	 * 
+	 * @return 処理内容[≠{@code null}]
+	 */
+	private OnClickListener onBtnSrch() {
+		return new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				// google検索ページを立ち上げる
+//				Uri uri = Uri.parse("https://www.google.co.jp/");
+//				Intent i = new Intent(Intent.ACTION_VIEW, uri);
+//				startActivity(i);
+				
+				Intent intent = new Intent(Intent.ACTION_WEB_SEARCH);
+				 intent.setClassName("com.google.android.googlequicksearchbox",
+				   "com.google.android.googlequicksearchbox.SearchActivity");
+				 intent.putExtra(SearchManager.QUERY, txtCmpNm.getText().toString());
+				 startActivity(intent);
+			}
+		};
+	}
+// 2017/01/28 yasui add end
+	
 	// ///////////////////////////////////////////////////////////////////////////////////////
 	// その他
 	// ///////////////////////////////////////////////////////////////////////////////////////
